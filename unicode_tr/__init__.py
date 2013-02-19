@@ -12,11 +12,6 @@ class unicode_tr(unicode):
         }
     }
 
-    def __charmap_handler(self, target):
-        for key, value in target:
-            text = self.text.replace(key, value)
-        return text
-
     def lower(self):
         for key, value in self.CHARMAP.get("to_lower").items():
             self = self.replace(key, value)
