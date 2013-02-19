@@ -1,5 +1,4 @@
 # -*- coding: utf8 -*-
-import re
 
 class unicode_tr(unicode):
     CHARMAP = {
