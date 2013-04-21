@@ -1,4 +1,4 @@
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 
 from unicode_tr import unicode_tr
 
@@ -26,6 +26,15 @@ class TestTurkishWords(unittest.TestCase):
         {"word": u"istanbul", "capitalize": u"İstanbul",}
     ]
 
+    TITLE_CASES = [
+        {"phrase": u"ısparta", "title": u"Isparta"},
+        {"phrase": u"ısparta istanbul", "title": u"Isparta İstanbul"},
+        {"phrase": u"İstanbul", "title": u"İstanbul"},
+        {"phrase": u"çarşı timu", "title": u"Çarşı Timu"},
+        {"phrase": u"Ğaaa ÇEŞİL", "title": u"Ğaaa Çeşil"},
+        {"phrase": u"ŞamaTa ısparta istanbul", "title": u"Şamata Isparta İstanbul"},
+    ]
+
     def test_upper(self):
         for case in self.UPPER_CASES:
             word = unicode_tr(case.get("word"))
@@ -41,6 +50,11 @@ class TestTurkishWords(unittest.TestCase):
             word = unicode_tr(case.get("word"))
             self.assertEquals(word.capitalize(), case.get("capitalize"))
 
+    def test_title(self):
+        for case in self.TITLE_CASES:
+            phrase = unicode_tr(case.get("phrase"))
+            self.assertEquals(phrase.title(), case.get("title"))
+
+
 if __name__ == '__main__':
     unittest.main()
-
