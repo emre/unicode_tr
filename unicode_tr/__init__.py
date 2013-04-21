@@ -30,3 +30,7 @@ class unicode_tr(unicode):
             first = first.replace(key, value)
 
         return (first + rest).capitalize()
+
+
+    def title(self):
+        return " ".join(map(lambda x: unicode_tr(x).capitalize(), self.split()))
