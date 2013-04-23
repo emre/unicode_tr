@@ -53,3 +53,28 @@ print text_true.title(), text_false.title()
 
 
 ```
+
+extras
+============
+*extras.slugify*
+
+Turkish language supported slugify function.
+
+> Converts to lowercase, removes non-word characters (alphanumerics and
+> underscores) and converts spaces to hyphens. Also strips leading and
+> trailing whitespace."
+
+```
+In [1]: from unicode_tr.extras import slugify
+
+In [2]: slugify("türkçe")
+Out[2]: u'turkce'
+
+In [3]: slugify("diyarbakır")
+Out[3]: u'diyarbakir'
+
+```
+
+
+
+
