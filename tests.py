@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from unicode_tr import unicode_tr
+from unicode_tr.extras import slugify
 
-import random
 import unittest
+
 
 class TestTurkishWords(unittest.TestCase):
 
@@ -35,6 +36,12 @@ class TestTurkishWords(unittest.TestCase):
         {"phrase": u"ŞamaTa ısparta istanbul", "title": u"Şamata Isparta İstanbul"},
     ]
 
+    SLUG_CASES = [
+        {"phrase": "Türkçe", "slug": "turkce"},
+        {"phrase": "Diyarbakır", "slug": "diyarbakir"},
+        {"phrase": "Yeni başlayanlar için yalnızlık", "slug": "yeni-baslayanlar-icin-yalnizlik"},
+    ]
+
     def test_upper(self):
         for case in self.UPPER_CASES:
             word = unicode_tr(case.get("word"))
@@ -54,6 +61,10 @@ class TestTurkishWords(unittest.TestCase):
         for case in self.TITLE_CASES:
             phrase = unicode_tr(case.get("phrase"))
             self.assertEquals(phrase.title(), case.get("title"))
+
+    def test_slugify(self):
+        for case in self.SLUG_CASES:
+            self.assertEquals(slugify(case.get("phrase")), case.get("slug"))
 
 
 if __name__ == '__main__':
