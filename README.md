@@ -75,6 +75,8 @@ Out[3]: u'diyarbakir'
 
 ```
 
+Note: If you want to deasciify your text: <a href="https://github.com/emres/turkish-deasciifier">@emres/turkish-deasciifier</a>
+
 
 
 
