@@ -1,6 +1,8 @@
 unicode_tr
 ==========
 
+[![Build Status](https://drone.io/github.com/emre/unicode_tr/status.png)](https://drone.io/github.com/emre/unicode_tr/latest)
+
 a python module to make unicode strings work as expected for turkish chars. solves the turkish "İ" problem.
 
 lower(), upper(), capitalize() and title() methods are patched.
