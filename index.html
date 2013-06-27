@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Unicode tr by emre</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Unicode tr</h1>
+        <p>a python module to make unicode strings work as expected for turkish chars. solves the turkish &quot;İ&quot; problem.</p>
+
+        <p class="view"><a href="https://github.com/emre/unicode_tr">View the Project on GitHub <small>emre/unicode_tr</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/emre/unicode_tr/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/emre/unicode_tr/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/emre/unicode_tr">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="unicode_tr" class="anchor" href="#unicode_tr"><span class="octicon octicon-link"></span></a>unicode_tr</h1>
+
+<p><a href="https://drone.io/github.com/emre/unicode_tr/latest"><img src="https://drone.io/github.com/emre/unicode_tr/status.png" alt="Build Status"></a></p>
+
+<p>a python module to make unicode strings work as expected for turkish chars. solves the turkish "İ" problem.</p>
+
+<p>lower(), upper(), capitalize() and title() methods are patched.</p>
+
+<h1>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>installation</h1>
+
+<pre><code>pip install unicode_tr
+</code></pre>
+
+<p>or if you like 90s:</p>
+
+<pre><code>easy_install unicode_tr
+</code></pre>
+
+<p>or add unicode_tr directory to the your path.</p>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>usage</h1>
+
+<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">unicode_tr</span> <span class="kn">import</span> <span class="n">unicode_tr</span>
+
+<span class="n">text_true</span> <span class="o">=</span> <span class="n">unicode_tr</span><span class="p">(</span><span class="s">u"istanbul"</span><span class="p">)</span>
+<span class="n">text_wrong</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="s">u"istanbul"</span><span class="p">)</span>
+
+<span class="c"># string.upper</span>
+<span class="k">print</span> <span class="n">text_true</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">text_wrong</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="c"># output -&gt; İSTANBUL ISTANBUL</span>
+
+<span class="c"># string.capitalize</span>
+<span class="k">print</span> <span class="n">text_true</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span> <span class="n">text_wrong</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="c"># output -&gt; İstanbul Istanbul</span>
+
+<span class="c"># string.lower</span>
+<span class="n">text_true</span>  <span class="o">=</span> <span class="n">unicode_tr</span><span class="p">(</span><span class="s">u"ÇINAR"</span><span class="p">)</span>
+<span class="n">text_false</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="s">u"ÇINAR"</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">text_true</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">text_false</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="c"># output -&gt; çınar çinar</span>
+
+<span class="c"># string.title</span>
+<span class="n">text_true</span>  <span class="o">=</span> <span class="n">unicode_tr</span><span class="p">(</span><span class="s">u"izmir istanbul"</span><span class="p">)</span>
+<span class="n">text_false</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="s">u"izmir istanbul"</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">text_true</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span> <span class="n">text_false</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+<span class="c"># output -&gt; İzmir İstanbul Izmir Istanbul</span>
+
+
+</pre></div>
+
+<h1>
+<a name="extras" class="anchor" href="#extras"><span class="octicon octicon-link"></span></a>extras</h1>
+
+<p><em>extras.slugify</em></p>
+
+<p>Turkish language supported slugify function.</p>
+
+<blockquote>
+<p>Converts to lowercase, removes non-word characters (alphanumerics and
+underscores) and converts spaces to hyphens. Also strips leading and
+trailing whitespace."</p>
+</blockquote>
+
+<pre><code>In [1]: from unicode_tr.extras import slugify
+
+In [2]: slugify("türkçe")
+Out[2]: u'turkce'
+
+In [3]: slugify("diyarbakır")
+Out[3]: u'diyarbakir'
+
+</code></pre>
+
+<p>Note: If you want to deasciify your text: <a href="https://github.com/emres/turkish-deasciifier">@emres/turkish-deasciifier</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/emre">emre</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
