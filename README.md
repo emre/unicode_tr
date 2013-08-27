@@ -1,7 +1,7 @@
 unicode_tr
 ==========
 
-[![Build Status](https://drone.io/github.com/emre/unicode_tr/status.png)](https://drone.io/github.com/emre/unicode_tr/latest) <img src= "https://pypip.in/v/unicode_tr/badge.png"> &nbsp; <img src="https://pypip.in/d/unicode_tr/badge.png">
+[![Build Status](https://drone.io/github.com/emre/unicode_tr/status.png)](https://drone.io/github.com/emre/unicode_tr/latest) &nbsp; <img src= "https://pypip.in/v/unicode_tr/badge.png"> &nbsp; <img src="https://pypip.in/d/unicode_tr/badge.png">
 
 
 a python module to make unicode strings work as expected for turkish chars. solves the turkish "İ" problem.
