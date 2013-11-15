@@ -83,3 +83,7 @@ Note: If you want to deasciify your text: <a href="https://github.com/emres/turk
 
 
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/emre/unicode_tr/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
