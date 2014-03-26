@@ -27,10 +27,7 @@ class unicode_tr(unicode):
 
     def capitalize(self):
         first, rest = self[0], self[1:]
-        for key, value in self.CHARMAP.get("to_upper").items():
-            first = first.replace(key, value)
-
-        return (first + rest).capitalize()
+        return unicode_tr(first).upper() + unicode_tr(rest).lower()
 
     def title(self):
         return " ".join(map(lambda x: unicode_tr(x).capitalize(), self.split()))
