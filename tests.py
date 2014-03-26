@@ -22,6 +22,7 @@ class TestTurkishWords(unittest.TestCase):
     ]
 
     CAPITALIZE_CASES = [
+        {"word": u"KADIKÖY", "capitalize": u"Kadıköy"},
         {"word": u"çınar", "capitalize": u"Çınar"},
         {"word": u"şansal", "capitalize": u"Şansal"},
         {"word": u"istanbul", "capitalize": u"İstanbul",}
@@ -32,7 +33,7 @@ class TestTurkishWords(unittest.TestCase):
         {"phrase": u"ısparta istanbul", "title": u"Isparta İstanbul"},
         {"phrase": u"İstanbul", "title": u"İstanbul"},
         {"phrase": u"çarşı timu", "title": u"Çarşı Timu"},
-        {"phrase": u"Ğaaa ÇEŞİL", "title": u"Ğaaa Çeşil"},
+        {"phrase": u"Ğaaa ÇEŞİL KADIKÖY", "title": u"Ğaaa Çeşil Kadıköy"},
         {"phrase": u"ŞamaTa ısparta istanbul", "title": u"Şamata Isparta İstanbul"},
     ]
 
