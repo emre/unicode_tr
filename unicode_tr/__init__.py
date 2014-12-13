@@ -8,8 +8,10 @@ lcase_table = tuple(u'abcçdefgğhıijklmnoöprsştuüvyz')
 ucase_table = tuple(u'ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ')
 
 def upper(data):
-    data = data.replace('i',u'İ')
-    data = data.replace(u'ı',u'I')
+    translate_table = {
+            ord(u'i') : u'İ',
+            ord(u'ı') : u'I'}
+    data = data.translate(translate_table)
     result = ''
     for char in data:
         try:
@@ -21,8 +23,10 @@ def upper(data):
     return result
 
 def lower(data):
-    data = data.replace(u'İ',u'i')
-    data = data.replace(u'I',u'ı')
+    translate_table = {
+            ord(u'İ') : u'i',
+            ord(u'I') : u'ı'}
+    data = data.translate(translate_table)
     result = ''
     for char in data:
         try:
