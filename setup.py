@@ -1,11 +1,11 @@
 # -*- coding: utf8 -*-
-
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='unicode_tr',
     version='0.6',
-    packages=['unicode_tr'],
+    packages = ['unicode_tr'],
+    install_requires = ["forbiddenfruit"],
     url='http://github.com/emre/unicode_tr',
     license='',
     author='Emre Yilmaz',

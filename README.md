@@ -24,13 +24,22 @@ or add unicode_tr directory to the your path.
 
 usage
 ============
+Just import the module.
+No need to refactor your unicode string by adding `unicode_tr` definition.
+
+It simply monkey-patches builtin.unicode module.
+Monkey-patched methods of unicode are:
+- unicode.upper()
+- unicode.lower()
+- unicode.capitalize()
+- unicode.title()
 
 ```python
 # -*- coding: utf-8 -*-
-from unicode_tr import unicode_tr
+import unicode_tr
 
-text_true = unicode_tr(u"istanbul")
-text_wrong = unicode(u"istanbul")
+text_true = u"istanbul"
+text_wrong = u"istanbul"
 
 # string.upper
 print text_true.upper(), text_wrong.upper()
@@ -41,15 +50,15 @@ print text_true.capitalize(), text_wrong.capitalize()
 # output -> İstanbul Istanbul
 
 # string.lower
-text_true  = unicode_tr(u"ÇINAR")
-text_false = unicode(u"ÇINAR")
+text_true  = u"ÇINAR"
+text_false = u"ÇINAR"
 
 print text_true.lower(), text_false.lower()
 # output -> çınar çinar
 
 # string.title
-text_true  = unicode_tr(u"izmir istanbul")
-text_false = unicode(u"izmir istanbul")
+text_true  = u"izmir istanbul"
+text_false = u"izmir istanbul"
 
 print text_true.title(), text_false.title()
 # output -> İzmir İstanbul Izmir Istanbul
