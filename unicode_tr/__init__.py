@@ -44,6 +44,11 @@ curse(__builtin__.unicode, 'lower', lower)
 curse(__builtin__.unicode, 'capitalize', capitalize)
 curse(__builtin__.unicode, 'title', title)
 
+class unicode_tr(unicode):
+    """For Backward compatibility"""
+    def __init__(self, arg):
+        super(unicode_tr, self).__init__(*args, **kwargs)
+
 if __name__ == '__main__':
     print u'istanbul'.upper()
     print u'İSTANBUL'.lower()
