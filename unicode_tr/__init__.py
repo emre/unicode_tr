@@ -1,11 +1,11 @@
 # -*- coding: utf8 -*-
 
 try:
-    instance = unicode
+    __instance = unicode
 except:
-    instance = str
+    __instance = str
 
-class unicode_tr(instance):
+class unicode_tr(__instance):
     CHARMAP = {
         "to_upper": {
             u"ı": u"I",
