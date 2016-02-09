@@ -3,10 +3,7 @@
 import unicodedata
 import re
 
-try:
-    __instance = unicode
-except:
-    __instance = str
+from . import __instance
     
 def slugify(value):
     """
