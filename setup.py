@@ -4,7 +4,7 @@ from distutils.core import setup
 
 setup(
     name='unicode_tr',
-    version='0.6',
+    version='0.6.1',
     packages=['unicode_tr'],
     url='http://github.com/emre/unicode_tr',
     license='',
