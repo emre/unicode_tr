@@ -35,7 +35,7 @@ class unicode_tr(__instance__):
 
     def capitalize(self):
         first, rest = self[0], self[1:]
-        return unicode_tr(first).upper() + unicode_tr(rest).lower()
+        return unicode_tr(unicode_tr(first).upper() + unicode_tr(rest).lower())
 
     def title(self):
-        return " ".join(map(lambda x: unicode_tr(x).capitalize(), self.split())).title()
+        return unicode_tr(" ".join(map(lambda x: unicode_tr(x).capitalize(), self.split())).title())
